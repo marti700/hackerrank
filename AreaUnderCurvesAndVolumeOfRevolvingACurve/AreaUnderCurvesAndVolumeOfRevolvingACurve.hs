@@ -11,10 +11,8 @@ areaUnderTheCurve = integrate (* 0.001)
 revolvingVolume :: Int -> Int -> [Int] -> [Int] -> Double
 revolvingVolume = integrate (\x -> (x**2)*0.001*pi)
 
--- general function using to find the area under a curve using the riemman
--- sums method. This function is used by the function areaUnderTheCurve and
--- revolvingVolume to solve the problem Area under curves and volume of
--- revolving curve
+-- general function using to find the area under a curve of a polynomial function using the riemman
+-- sums method.
 integrate :: (Double -> Double) -> Int -> Int -> [Int] -> [Int] -> Double
 integrate f l r as bs = sum $ map (f . evaluateAt) interval
   where
