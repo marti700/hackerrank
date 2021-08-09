@@ -5,7 +5,7 @@ perimetrePolygon xs = sum $ mapTuple distance xs xs
 
 
 -- general function used to traverse a list of tuples
--- used by the functions perimeterPolygon and areaPolygon
+-- used by the functions perimeterPolygon
 -- to solve the Compute the perimeter of a polygon and
 -- comute the area of a polygon problems
 mapTuple :: ( a -> a -> b ) -> [a] -> [a] -> [b]
