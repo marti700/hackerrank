@@ -1,5 +1,4 @@
 -- Pascal's triangle
-import Distribution.Compat.CharParsing (integral)
 pascal :: (Integral a) => a -> [[a]]
 pascal n = map triangleRow [1..n]
   -- Calculates the binomial coefficients for the given row of the
