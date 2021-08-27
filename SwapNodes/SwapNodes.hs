@@ -1,7 +1,6 @@
 -- Swap  Nodes
 --
 -- Tree data structure
-import Data.Vector.Storable.Mutable (swap)
 data Tree a = E | Node a (Tree a) (Tree a) deriving (Show, Read, Eq)
 
 -- In order traversal algorithm
@@ -109,5 +108,5 @@ main = do
   -- print to stdout
   --convert to string
   let r = map (unlines .map show) x
-  mapM_ (putStrLn . formatOutput) x
-  -- print swapOperations
+  -- mapM_ (putStrLn . formatOutput) x
+  print tree
