@@ -24,13 +24,13 @@ trd (_,_,x) = x
 -- uses the cross product (cX function) to determinate if the next point is a left or right turn
 -- recieves as argument the point with the lowest Y coordinate, the points and an empty list that will server as the stack
 -- https://www.youtube.com/watch?v=B2AJoQSZf4M
-convexHull :: (Double,Double) -> [(Double,Double )] -> [(Double,Double)] -> [(Double, Double)]
-convexHull _ [] ys = ys
-convexHull initialValue xs [] = convexHull initialValue xs [initialValue]
-convexHull initialValue (x:xs) [y] = convexHull initialValue xs (x:[y])
-convexHull initialValue (x:xs) (b:c:ds)
-  | cX b x c >= 0 = convexHull initialValue xs (x:b:c:ds)
-  | cX b x c < 0 = convexHull initialValue (x:xs) (c:ds)
+convexHull :: [(Double,Double )] -> [(Double,Double)] -> [(Double, Double)]
+convexHull [] ys = ys
+convexHull (x:xs) [] = convexHull xs [x]
+convexHull (x:xs) [y] = convexHull xs (x:[y])
+convexHull (x:xs) (b:c:ds)
+  | cX b c x >= 0 = convexHull xs (x:b:c:ds)
+  | otherwise = convexHull (x:xs) (c:ds)
   where
     cX (x1,y1) (x2,y2) (x3,y3) = ((x2-x1) * (y3-y1)) - ((y2 - y1) * (x3-x1))
 
@@ -77,8 +77,8 @@ toDouble (a:b:xs) = (read a :: Double, read b :: Double) : toDouble xs
 
 -- sorting function, used with the sortBy function to sort the points by angle
 xxx (a,b,c) (d,e,f)
-  | c > f = GT
-  | otherwise = LT
+  | c < f = LT
+  | otherwise = GT
 
 
 main :: IO ()
@@ -87,5 +87,5 @@ main = do
   let inputAsDouble = toDouble $  concatMap words input
   let minP = minY inputAsDouble
   let sortedPoints = ss $ removeSameAnglePoints minP (sortBy xxx (getPolarAngle minP inputAsDouble))
-  let convHull = convexHull minP (reverse sortedPoints) []
+  let convHull = convexHull sortedPoints []
   printf "%.1f" (perimeter (convHull ++ [head convHull]))
