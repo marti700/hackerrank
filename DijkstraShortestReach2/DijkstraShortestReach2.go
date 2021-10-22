@@ -199,6 +199,8 @@ func buildAdjList(input []byte, start, edges int) (map[int][][]int, int) {
 // parse the part of the input that describe the number of nodes, edges
 // and the description of the cost of going from one node to an other using an edge
 // this last part is put into an adjacency list
+// retuns an adjacency list, the number of nodes in the graph, the number of edges, the starting node
+// and the next byte to read (to know from where start to parse the next test case) in the input array
 func parseInput(input []byte, start int) (map[int][][]int, int, int, int, int) {
   nodes, index := readInt(input, start)
   edges, index := readInt(input, index)
