@@ -32,7 +32,7 @@ object Solution {
     false
   }
 
-  /** Returns the location of the bot. The bot is always located in the middle of the grid
+  /** Returns the location of the bot. Initially the bot is always located in the middle of the grid
    *
    * @param gridSize the size of the map. The grid is always a cuadratic matrix
    * @return a tuple representing the x,y coordinates of the center of the grid
@@ -80,7 +80,7 @@ object Solution {
    * Search recursively the next spot to clean by using BFS to find the nearest dirty spot
    * @param grid an matrix of chars representing the grid
    * @param pos the position on which the bot is
-   * @return a List of tuple list representing the coordinates the bot traveled along
+   * @return a tuple list representing the coordinates the bot traveled along
    */
   def botClean(grid: Array[Array[Char]], pos: (Int,Int)) : List[List[(Int,Int)]] = {
     val newGrid = grid.clone()
