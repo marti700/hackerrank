@@ -1,5 +1,10 @@
-# Created by https://www.toptal.com/developers/gitignore/api/scala,sbt,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=scala,sbt,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/scala,metals,sbt,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=scala,metals,sbt,visualstudiocode
+
+### Metals ###
+.metals/
+.bloop/
+project/**/metals.sbt
 
 ### SBT ###
 # Simple Build Tool
@@ -19,6 +24,7 @@ project/plugins/project/
 ### Scala ###
 *.class
 *.log
+.scalafmt.conf
 
 ### VisualStudioCode ###
 .vscode/*
@@ -28,11 +34,40 @@ project/plugins/project/
 !.vscode/extensions.json
 *.code-workspace
 .scalafmt.conf
+scala/.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/scala,sbt,visualstudiocode
+### Haskell ###
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.hie
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
 
-./metals/*
+# End of https://www.toptal.com/developers/gitignore/api/scala,metals,sbt,visualstudiocode
+
+
