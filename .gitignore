@@ -21,6 +21,27 @@ project/plugins/project/
 .lib/
 .bsp
 
+### Go ###
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+### Go Patch ###
+/vendor/
+/Godeps/
+
 ### Scala ###
 *.class
 *.log
@@ -28,6 +49,12 @@ project/plugins/project/
 
 ### VisualStudioCode ###
 .vscode/*
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### VisualStudioCode ###
+.vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -70,4 +97,14 @@ cabal.project.local~
 
 # End of https://www.toptal.com/developers/gitignore/api/scala,metals,sbt,visualstudiocode
 
+# Local History for Visual Studio Code
+.history/
 
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/go,visualstudiocode,scala
+
+/problem
