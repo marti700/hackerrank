@@ -1,0 +1,24 @@
+// IO
+
+//Reads space separated integers from stdin
+func getInput(reader *bufio.Reader) []int {
+	arr_string, _ := reader.ReadString('\n')
+	arr_split := strings.Split(arr_string, " ")
+	var arr []int
+
+	for _, e := range arr_split {
+		temp, _ := strconv.Atoi(strings.TrimSpace(e))
+		arr = append(arr, temp)
+	}
+
+	return arr
+}
+
+// prints results to sdout
+func output(arr []int) {
+	for _, e := range arr {
+		fmt.Println(e)
+	}
+}
+
+// IO END

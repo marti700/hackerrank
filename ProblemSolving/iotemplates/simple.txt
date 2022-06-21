@@ -1,0 +1,2 @@
+var q int
+fmt.Scanf("%d\n", &q) // read the query q
